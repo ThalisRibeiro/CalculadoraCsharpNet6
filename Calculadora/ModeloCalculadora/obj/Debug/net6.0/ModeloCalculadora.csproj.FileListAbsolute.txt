@@ -1,0 +1,12 @@
+C:\Users\thali\source\repos\CalculadoraCsharpNet6\Calculadora\ModeloCalculadora\bin\Debug\net6.0\ModeloCalculadora.deps.json
+C:\Users\thali\source\repos\CalculadoraCsharpNet6\Calculadora\ModeloCalculadora\bin\Debug\net6.0\ModeloCalculadora.dll
+C:\Users\thali\source\repos\CalculadoraCsharpNet6\Calculadora\ModeloCalculadora\bin\Debug\net6.0\ref\ModeloCalculadora.dll
+C:\Users\thali\source\repos\CalculadoraCsharpNet6\Calculadora\ModeloCalculadora\bin\Debug\net6.0\ModeloCalculadora.pdb
+C:\Users\thali\source\repos\CalculadoraCsharpNet6\Calculadora\ModeloCalculadora\obj\Debug\net6.0\ModeloCalculadora.csproj.AssemblyReference.cache
+C:\Users\thali\source\repos\CalculadoraCsharpNet6\Calculadora\ModeloCalculadora\obj\Debug\net6.0\ModeloCalculadora.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\thali\source\repos\CalculadoraCsharpNet6\Calculadora\ModeloCalculadora\obj\Debug\net6.0\ModeloCalculadora.AssemblyInfoInputs.cache
+C:\Users\thali\source\repos\CalculadoraCsharpNet6\Calculadora\ModeloCalculadora\obj\Debug\net6.0\ModeloCalculadora.AssemblyInfo.cs
+C:\Users\thali\source\repos\CalculadoraCsharpNet6\Calculadora\ModeloCalculadora\obj\Debug\net6.0\ModeloCalculadora.csproj.CoreCompileInputs.cache
+C:\Users\thali\source\repos\CalculadoraCsharpNet6\Calculadora\ModeloCalculadora\obj\Debug\net6.0\ModeloCalculadora.dll
+C:\Users\thali\source\repos\CalculadoraCsharpNet6\Calculadora\ModeloCalculadora\obj\Debug\net6.0\ref\ModeloCalculadora.dll
+C:\Users\thali\source\repos\CalculadoraCsharpNet6\Calculadora\ModeloCalculadora\obj\Debug\net6.0\ModeloCalculadora.pdb
