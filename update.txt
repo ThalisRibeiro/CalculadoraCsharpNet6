@@ -1,0 +1,10 @@
+01 + 34 * 6 + 8
+   2    5   7
+
+CalculadoraCsharpNet6
+Uma calculadora criada usando C# e Dotnet 6
+
+Adicao de um teste 
+
+correção de bugs na soma e subtração 
+pode ter mais de uma operação

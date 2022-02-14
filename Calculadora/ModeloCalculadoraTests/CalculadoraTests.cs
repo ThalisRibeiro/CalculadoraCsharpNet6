@@ -20,5 +20,14 @@ namespace ModeloCalculadora.Tests
             string esperado = "20";
             Assert.AreEqual(esperado, retorno);
         }
+        [TestMethod]
+        public void TestMultiplicaSoma()
+        {
+            Calculadora calc = new();
+            string retorno = calc.ComecaAlgoritimo("5+10*2");
+
+            string esperado = "25";
+            Assert.AreEqual(esperado, retorno);
+        }
     }
 }
