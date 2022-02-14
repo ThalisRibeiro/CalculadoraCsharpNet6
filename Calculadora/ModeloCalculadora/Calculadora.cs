@@ -12,7 +12,9 @@
         public string ComecaAlgoritimo(string recebido)
         {
             digitado = recebido;
+            do{
             BuscaMultiDiv();
+            } while (digitado.Contains(especiais[0]) == true || digitado.Contains(especiais[1]) == true || digitado.Contains(especiais[2]) == true || digitado.Contains(especiais[3]) == true);
             return digitado;
         }
 
@@ -35,9 +37,9 @@
             }
             else if (digitado.Contains(especiais[2]) || digitado.Contains(especiais[3]))
             {
-                int indexSoma = digitado.IndexOf(especiais[0]), indexSub = digitado.IndexOf(especiais[1]);
+                int indexSoma = digitado.IndexOf(especiais[2]), indexSub = digitado.IndexOf(especiais[3]);
 
-                if (indexSoma < indexSub && indexSoma > -1)
+                if (indexSoma < indexSub && indexSoma > -1 || indexSub < 0)
                 {
                     BuscaPm_Sm_(indexSoma);
                 }
