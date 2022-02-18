@@ -51,9 +51,9 @@
         }
 
 
-        public int FazConta(int pm, char simbol, int sm)
+        public double FazConta(double pm, char simbol, double sm)
         {
-            int resultado = 0;
+            double resultado = 0;
             switch (simbol)
             {
                 case '*':
@@ -74,7 +74,7 @@
             return resultado;
         }
 
-        private int RetornaNumero(int indexSimboloPrincipal, bool sentidoReverso)
+        private double RetornaNumero(int indexSimboloPrincipal, bool sentidoReverso)
         {
             string numeroEncontrado = "";
             switch (sentidoReverso)
@@ -111,14 +111,14 @@
                     }
                     break;
             }
-            return Convert.ToInt16(numeroEncontrado);
+            return Convert.ToDouble(numeroEncontrado);
         }
 
         public void BuscaPm_Sm_(int indexSimbolo)
         {
-            int pm = RetornaNumero(indexSimbolo, true);
-            int sm = RetornaNumero(indexSimbolo, false);
-            int resultado = FazConta(pm, digitado[indexSimbolo], sm);
+            double pm = RetornaNumero(indexSimbolo, true);
+            double sm = RetornaNumero(indexSimbolo, false);
+            double resultado = FazConta(pm, digitado[indexSimbolo], sm);
             string troca = ($"{pm.ToString() + digitado[indexSimbolo] + sm.ToString()}");
 
             digitado =digitado.Replace(troca, $"{resultado.ToString()}");
