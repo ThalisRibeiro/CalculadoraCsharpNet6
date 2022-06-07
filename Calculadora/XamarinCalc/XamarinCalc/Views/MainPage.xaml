@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="XamarinCalc.MainPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1.3*" />
+            <RowDefinition Height="0.8*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Frame Grid.ColumnSpan="4" BorderColor="Blue" />
+        <Entry
+            Grid.ColumnSpan="4"
+            BackgroundColor="transparent"
+            FontSize="70"
+            HorizontalTextAlignment="End"
+            IsEnabled="False"
+            Placeholder="0"
+            PlaceholderColor="Gray" />
+        <Button
+            Grid.Row="2"
+            Grid.Column="0"
+            Text="7" />
+        <Button
+            Grid.Row="2"
+            Grid.Column="1"
+            Text="8" />
+        <Button
+            Grid.Row="2"
+            Grid.Column="2"
+            Text="9" />
+        <Button
+            Grid.Row="3"
+            Grid.Column="0"
+            Text="4" />
+        <Button
+            Grid.Row="3"
+            Grid.Column="1"
+            Text="5" />
+        <Button
+            Grid.Row="3"
+            Grid.Column="2"
+            Text="6" />
+        <Button
+            Grid.Row="4"
+            Grid.Column="0"
+            Text="1" />
+        <Button
+            Grid.Row="4"
+            Grid.Column="1"
+            Text="2" />
+        <Button
+            Grid.Row="4"
+            Grid.Column="2"
+            Text="3" />
+        <Button
+            Grid.Row="4"
+            Grid.Column="3"
+            Text="+" />
+        <Button
+            Grid.Row="3"
+            Grid.Column="3"
+            Text="-" />
+        <Button
+            Grid.Row="2"
+            Grid.Column="3"
+            Text="x" />
+        <Button
+            Grid.Row="1"
+            Grid.Column="3"
+            Text="⇐"
+            TextColor="White" />
+        <Button
+            Grid.Row="1"
+            Grid.Column="2"
+            Text="Ⅽ" />
+
+    </Grid>
+
+</ContentPage>
