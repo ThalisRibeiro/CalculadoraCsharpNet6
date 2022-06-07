@@ -11,11 +11,11 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="1.3*" />
+            <RowDefinition Height="1.5*" />
             <RowDefinition Height="0.8*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
+            <RowDefinition Height="0.8*" />
+            <RowDefinition Height="0.8*" />
+            <RowDefinition Height="0.8*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
@@ -35,89 +35,90 @@
             Text="{Binding Entrada}"
             TextColor="Black" />
         <Button
-            Grid.Row="2"
+            Grid.Row="1"
             Grid.Column="0"
             Command="{Binding AdicionaNumeroComando}"
             CommandParameter="7"
             Text="7" />
         <Button
-            Grid.Row="2"
+            Grid.Row="1"
             Grid.Column="1"
             Command="{Binding AdicionaNumeroComando}"
             CommandParameter="8"
             Text="8" />
         <Button
-            Grid.Row="2"
+            Grid.Row="1"
             Grid.Column="2"
             Command="{Binding AdicionaNumeroComando}"
             CommandParameter="9"
             Text="9" />
         <Button
-            Grid.Row="3"
+            Grid.Row="2"
             Grid.Column="0"
             Command="{Binding AdicionaNumeroComando}"
             CommandParameter="4"
             Text="4" />
         <Button
-            Grid.Row="3"
+            Grid.Row="2"
             Grid.Column="1"
             Command="{Binding AdicionaNumeroComando}"
             CommandParameter="5"
             Text="5" />
         <Button
-            Grid.Row="3"
+            Grid.Row="2"
             Grid.Column="2"
             Command="{Binding AdicionaNumeroComando}"
             CommandParameter="6"
             Text="6" />
         <Button
-            Grid.Row="4"
+            Grid.Row="3"
             Grid.Column="0"
             Command="{Binding AdicionaNumeroComando}"
             CommandParameter="1"
             Text="1" />
         <Button
-            Grid.Row="4"
+            Grid.Row="3"
             Grid.Column="1"
             Command="{Binding AdicionaNumeroComando}"
             CommandParameter="2"
             Text="2" />
         <Button
-            Grid.Row="4"
+            Grid.Row="3"
             Grid.Column="2"
             Command="{Binding AdicionaNumeroComando}"
             CommandParameter="3"
             Text="3" />
         <Button
-            Grid.Row="4"
+            Grid.Row="3"
             Grid.Column="3"
             Text="+" />
         <Button
-            Grid.Row="3"
+            Grid.Row="2"
             Grid.Column="3"
             Text="-" />
         <Button
-            Grid.Row="2"
+            Grid.Row="1"
             Grid.Column="3"
             Text="x" />
         <Button
-            Grid.Row="1"
-            Grid.Column="3"
+            Grid.Row="4"
+            Grid.Column="2"
             Command="{Binding ExcluiUltimoComando}"
             Text="⇐"
             TextColor="White" />
         <Button
-            Grid.Row="1"
-            Grid.Column="2"
+            Grid.Row="4"
+            Grid.Column="0"
+            Command="{Binding ExcluiTodasComando}"
             Text="Ⅽ" />
         <Button
-            Grid.Row="5"
+            Grid.Row="4"
             Grid.Column="1"
             Command="{Binding AdicionaNumeroComando}"
             CommandParameter="0"
             Text="0" />
         <Button
-            Grid.Row="5"
+            Grid.Row="4"
             Grid.Column="3"
             Text="=" />
 
