@@ -91,14 +91,20 @@
         <Button
             Grid.Row="3"
             Grid.Column="3"
+            Command="{Binding AdicionaBotaoComando}"
+            CommandParameter="+"
             Text="+" />
         <Button
             Grid.Row="2"
             Grid.Column="3"
+            Command="{Binding AdicionaBotaoComando}"
+            CommandParameter="-"
             Text="-" />
         <Button
             Grid.Row="1"
             Grid.Column="3"
+            Command="{Binding AdicionaBotaoComando}"
+            CommandParameter="x"
             Text="x" />
         <Button
             Grid.Row="4"
