@@ -16,6 +16,7 @@
             <RowDefinition Height="0.8*" />
             <RowDefinition Height="0.8*" />
             <RowDefinition Height="0.8*" />
+            <RowDefinition Height="0.8*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
@@ -36,75 +37,82 @@
             TextColor="Black" />
         <Button
             x:Name="Button_7"
-            Grid.Row="1"
+            Grid.Row="2"
             Grid.Column="0"
             Command="{Binding AdicionaNumeroComando}"
             CommandParameter="{Binding Source={x:Reference Button_7}, Path=Text}"
             Text="7" />
         <Button
             x:Name="Button_8"
-            Grid.Row="1"
+            Grid.Row="2"
             Grid.Column="1"
             Command="{Binding AdicionaNumeroComando}"
             CommandParameter="{Binding Source={x:Reference Button_8}, Path=Text}"
             Text="8" />
         <Button
             x:Name="Button_9"
-            Grid.Row="1"
+            Grid.Row="2"
             Grid.Column="2"
             Command="{Binding AdicionaNumeroComando}"
             CommandParameter="{Binding Source={x:Reference Button_9}, Path=Text}"
             Text="9" />
         <Button
             x:Name="Button_4"
-            Grid.Row="2"
+            Grid.Row="3"
             Grid.Column="0"
             Command="{Binding AdicionaNumeroComando}"
             CommandParameter="{Binding Source={x:Reference Button_4}, Path=Text}"
             Text="4" />
         <Button
             x:Name="Button_5"
-            Grid.Row="2"
+            Grid.Row="3"
             Grid.Column="1"
             Command="{Binding AdicionaNumeroComando}"
             CommandParameter="{Binding Source={x:Reference Button_5}, Path=Text}"
             Text="5" />
         <Button
             x:Name="Button_6"
-            Grid.Row="2"
+            Grid.Row="3"
             Grid.Column="2"
             Command="{Binding AdicionaNumeroComando}"
             CommandParameter="{Binding Source={x:Reference Button_6}, Path=Text}"
             Text="6" />
         <Button
             x:Name="Button_1"
-            Grid.Row="3"
+            Grid.Row="4"
             Grid.Column="0"
             Command="{Binding AdicionaNumeroComando}"
             CommandParameter="{Binding Source={x:Reference Button_1}, Path=Text}"
             Text="1" />
         <Button
             x:Name="Button_2"
-            Grid.Row="3"
+            Grid.Row="4"
             Grid.Column="1"
             Command="{Binding AdicionaNumeroComando}"
             CommandParameter="{Binding Source={x:Reference Button_2}, Path=Text}"
             Text="2" />
         <Button
             x:Name="Button_3"
-            Grid.Row="3"
+            Grid.Row="4"
             Grid.Column="2"
             Command="{Binding AdicionaNumeroComando}"
             CommandParameter="{Binding Source={x:Reference Button_3}, Path=Text}"
             Text="3" />
         <Button
-            Grid.Row="3"
+            x:Name="Button_0"
+            Grid.Row="5"
+            Grid.Column="1"
+            Command="{Binding AdicionaNumeroComando}"
+            CommandParameter="{Binding Source={x:Reference Button_0}, Path=Text}"
+            Text="0" />
+        <Button
+            Grid.Row="4"
             Grid.Column="3"
             Command="{Binding AdicionaBotaoComando}"
             CommandParameter="+"
             Text="+" />
         <Button
-            Grid.Row="2"
+            Grid.Row="3"
             Grid.Column="3"
             Command="{Binding AdicionaBotaoComando}"
             CommandParameter="-"
@@ -116,25 +124,32 @@
             CommandParameter="x"
             Text="x" />
         <Button
-            Grid.Row="4"
+            Grid.Row="2"
+            Grid.Column="3"
+            Command="{Binding AdicionaBotaoComando}"
+            CommandParameter="/"
+            Text="/" />
+        <Button
+            Grid.Row="5"
+            Grid.Column="2"
+            Command="{Binding AdicionaBotaoComando}"
+            CommandParameter=","
+            Text="," />
+        <Button
+            Grid.Row="1"
             Grid.Column="2"
             Command="{Binding ExcluiUltimoComando}"
             Text="⇐"
             TextColor="White" />
         <Button
-            Grid.Row="4"
+            Grid.Row="1"
             Grid.Column="0"
+            Grid.ColumnSpan="2"
             Command="{Binding ExcluiTodasComando}"
             Text="Ⅽ" />
+
         <Button
-            x:Name="Button_0"
-            Grid.Row="4"
-            Grid.Column="1"
-            Command="{Binding AdicionaNumeroComando}"
-            CommandParameter="{Binding Source={x:Reference Button_0}, Path=Text}"
-            Text="0" />
-        <Button
-            Grid.Row="4"
+            Grid.Row="5"
             Grid.Column="3"
             Command="{Binding ComecaCalcularComando}"
             Text="=" />
