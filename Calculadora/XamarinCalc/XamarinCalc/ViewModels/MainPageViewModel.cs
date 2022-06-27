@@ -36,6 +36,9 @@ namespace XamarinCalc.ViewModels
         void AdicionaVirgula(string botao)
         {
 
+            if (canUseSpecialButtons == false || Entrada.Length == 0)
+                return;
+
             if (CanUseVirgula() == false)
                 return;
             string lastIndex = entrada[ReturnLastIndex()].ToString();
