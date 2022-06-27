@@ -8,7 +8,7 @@ namespace XamarinCalc.Models
     {
 
         public string digitado = "";
-        public string[] especiais = { "*", "/", "+", "-" };
+        public string[] especiais = { "x", "/", "+", "-" };
         public char pontuacao = '.';
         public int contador = 0;
 
@@ -60,7 +60,7 @@ namespace XamarinCalc.Models
             double resultado = 0;
             switch (simbol)
             {
-                case '*':
+                case 'x':
                     resultado = pm * sm;
                     break;
                 case '/':
@@ -88,7 +88,8 @@ namespace XamarinCalc.Models
                     for (int i = indexSimboloPrincipal + 1; i < digitado.Length; i++)
                     {
 
-                        if (digitado[i].Equals(especiais[0]) || digitado[i].Equals(especiais[1]) || digitado[i].Equals(especiais[2]) || digitado[i].Equals(especiais[3]))
+                        if (digitado[i].ToString() == especiais[0] || digitado[i].ToString() == (especiais[1]) || 
+                            digitado[i].ToString() == (especiais[2]) || digitado[i].ToString() == (especiais[3]))
                         {
                             break;
                         }
@@ -104,7 +105,8 @@ namespace XamarinCalc.Models
                 default:
                     for (int i = indexSimboloPrincipal - 1; i > -1; i--)
                     {
-                        if (digitado[i].Equals(especiais[0]) || digitado[i].Equals(especiais[1]) || digitado[i].Equals(especiais[2]) || digitado[i].Equals(especiais[3]))
+                        if (digitado[i].ToString() == especiais[0] || digitado[i].ToString() == (especiais[1]) ||
+                            digitado[i].ToString() == (especiais[2]) || digitado[i].ToString() == (especiais[3]))
                         {
                             break;
                         }
