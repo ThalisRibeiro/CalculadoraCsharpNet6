@@ -9,7 +9,7 @@ namespace XamarinCalc.Models
 
         public string digitado = "";
         public string[] especiais = { "x", "/", "+", "-" };
-        public char pontuacao = '.';
+        public string pontuacao = ",";
         public int contador = 0;
 
         public string ComecaAlgoritimo(string recebido)
