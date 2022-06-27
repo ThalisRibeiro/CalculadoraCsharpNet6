@@ -11,6 +11,7 @@ namespace XamarinCalc.ViewModels
         public ICommand ExcluiUltimoComando { get; }
         public ICommand ExcluiTodasComando { get; }
         public ICommand AdicionaBotaoComando { get; }
+        public ICommand ComecaCalcularComando { get; }
 
         public string Entrada { get => entrada; set => SetProperty(ref entrada, value); }
         string entrada;
@@ -22,6 +23,7 @@ namespace XamarinCalc.ViewModels
             ExcluiUltimoComando = new Command(ExcluiUltimo);
             ExcluiTodasComando = new Command(ExcluiTodas);
             AdicionaBotaoComando = new Command<string>(AdicionaBotao);
+            ComecaCalcularComando = new Command(ComecaCalcular);
             canUseSpecialButtons = false;
             calculadora = new ModeloCalculadora();
         }
@@ -32,10 +34,10 @@ namespace XamarinCalc.ViewModels
 
         void AdicionaBotao(string botao)
         {
-            string lastIndex = entrada[ReturnLastIndex()].ToString();
             if (canUseSpecialButtons == false || Entrada.Length == 0)
                 return;
-            //string especiais = calculadora.especiais[0] + calculadora.especiais[1] + calculadora.especiais[2] + calculadora.especiais[3];
+            string lastIndex = entrada[ReturnLastIndex()].ToString();
+
             if (lastIndex.Contains(calculadora.especiais[0])|| lastIndex.Contains(calculadora.especiais[1])
                 || lastIndex.Contains(calculadora.especiais[2])|| lastIndex.Contains(calculadora.especiais[3]))            
                 entrada = entrada.Remove(ReturnLastIndex());
@@ -57,6 +59,17 @@ namespace XamarinCalc.ViewModels
             if (canUseSpecialButtons == false || Entrada.Length == 0)
                 return;
             Entrada = Entrada.Remove(0);
+        }
+        void ComecaCalcular()
+        {
+            if (canUseSpecialButtons == false || Entrada.Length < 3)
+                return;
+
+            string lastIndex = entrada[ReturnLastIndex()].ToString();
+            if (lastIndex.Contains(calculadora.especiais[0]) || lastIndex.Contains(calculadora.especiais[1])
+                || lastIndex.Contains(calculadora.especiais[2]) || lastIndex.Contains(calculadora.especiais[3]))
+                return;
+                Entrada = calculadora.ComecaAlgoritimo(Entrada);
         }
     }
 }
