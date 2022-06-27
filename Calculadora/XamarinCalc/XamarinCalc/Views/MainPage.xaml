@@ -132,7 +132,7 @@
         <Button
             Grid.Row="5"
             Grid.Column="2"
-            Command="{Binding AdicionaBotaoComando}"
+            Command="{Binding AdicionaVirgulaComando}"
             CommandParameter=","
             Text="," />
         <Button
