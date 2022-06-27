@@ -11,6 +11,7 @@ namespace XamarinCalc.ViewModels
         public ICommand ExcluiUltimoComando { get; }
         public ICommand ExcluiTodasComando { get; }
         public ICommand AdicionaBotaoComando { get; }
+        public ICommand AdicionaVirgulaComando { get; }
         public ICommand ComecaCalcularComando { get; }
 
         public string Entrada { get => entrada; set => SetProperty(ref entrada, value); }
@@ -23,6 +24,7 @@ namespace XamarinCalc.ViewModels
             ExcluiUltimoComando = new Command(ExcluiUltimo);
             ExcluiTodasComando = new Command(ExcluiTodas);
             AdicionaBotaoComando = new Command<string>(AdicionaBotao);
+            AdicionaVirgulaComando = new Command<string>(AdicionaVirgula);
             ComecaCalcularComando = new Command(ComecaCalcular);
             canUseSpecialButtons = false;
             calculadora = new ModeloCalculadora();
@@ -31,7 +33,18 @@ namespace XamarinCalc.ViewModels
         {
             return Entrada.Length - 1;
         }
+        void AdicionaVirgula(string botao)
+        {
 
+            if (CanUseVirgula() == false)
+                return;
+            string lastIndex = entrada[ReturnLastIndex()].ToString();
+
+            if (lastIndex.Contains(calculadora.especiais[0]) || lastIndex.Contains(calculadora.especiais[1])
+                || lastIndex.Contains(calculadora.especiais[2]) || lastIndex.Contains(calculadora.especiais[3]) || lastIndex.Contains(calculadora.pontuacao))
+                return;
+            Entrada += botao;
+        }
         void AdicionaBotao(string botao)
         {
             if (canUseSpecialButtons == false || Entrada.Length == 0)
@@ -70,6 +83,20 @@ namespace XamarinCalc.ViewModels
                 || lastIndex.Contains(calculadora.especiais[2]) || lastIndex.Contains(calculadora.especiais[3]) || lastIndex.Contains(calculadora.pontuacao))
                 return;
                 Entrada = calculadora.ComecaAlgoritimo(Entrada);
+        }
+        bool CanUseVirgula()
+        {
+            if (entrada.Contains(",") == false)
+            {
+                //Entrada += ",";
+                return true;
+            }
+            var lastVirgula = entrada.LastIndexOf(",");
+            var sub = entrada.Substring(lastVirgula);
+            if (sub.Contains(calculadora.especiais[0]) || sub.Contains(calculadora.especiais[1])
+                || sub.Contains(calculadora.especiais[2]) || sub.Contains(calculadora.especiais[3]))
+                return true;
+            return false;
         }
     }
 }
