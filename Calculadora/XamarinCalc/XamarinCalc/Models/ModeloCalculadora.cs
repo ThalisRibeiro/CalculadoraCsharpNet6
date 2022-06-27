@@ -11,6 +11,8 @@ namespace XamarinCalc.Models
         public string[] especiais = { "x", "/", "+", "-" };
         public string pontuacao = ",";
         public int contador = 0;
+        int lastIndex, firstIndex;
+
 
         public string ComecaAlgoritimo(string recebido)
         {
@@ -96,6 +98,7 @@ namespace XamarinCalc.Models
                         else
                         {
                             numeroEncontrado = numeroEncontrado + digitado[i].ToString();
+                            lastIndex = i;
                         }
                     }
 
@@ -113,6 +116,7 @@ namespace XamarinCalc.Models
                         else
                         {
                             numeroEncontrado = digitado[i].ToString() + numeroEncontrado;
+                            firstIndex = i;
                         }
                     }
                     break;
@@ -125,8 +129,8 @@ namespace XamarinCalc.Models
             double pm = RetornaNumero(indexSimbolo, true);
             double sm = RetornaNumero(indexSimbolo, false);
             double resultado = FazConta(pm, digitado[indexSimbolo], sm);
-            string troca = ($"{pm.ToString() + digitado[indexSimbolo] + sm.ToString()}");
-
+            //string troca = ($"{pm.ToString() + digitado[indexSimbolo] + sm.ToString()}");
+            string troca = digitado.Substring(firstIndex, lastIndex - firstIndex +1);
             digitado = digitado.Replace(troca, $"{resultado.ToString()}");
         }
     }
