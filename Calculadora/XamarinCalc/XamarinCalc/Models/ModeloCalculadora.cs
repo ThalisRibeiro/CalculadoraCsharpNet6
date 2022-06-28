@@ -35,7 +35,7 @@ namespace XamarinCalc.Models
                 {
                     BuscaPm_Sm_(indexMulti);
                 }
-                else if (indexDiv < indexMulti && indexDiv > -1)
+                else
                 {
                     BuscaPm_Sm_(indexDiv);
                 }
