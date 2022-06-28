@@ -11,6 +11,7 @@ namespace XamarinCalc.Models
         public string[] especiais = { "x", "/", "+", "-" };
         public string pontuacao = ",";
         public int contador = 0;
+        bool finalizadorNegativo = false;
         int lastIndex, firstIndex;
 
 
@@ -20,6 +21,8 @@ namespace XamarinCalc.Models
             do
             {
                 BuscaMultiDiv();
+                if (finalizadorNegativo == true)
+                    break;
             } while (digitado.Contains(especiais[0]) == true || digitado.Contains(especiais[1]) == true || digitado.Contains(especiais[2]) == true || digitado.Contains(especiais[3]) == true);
             return digitado;
         }
@@ -51,6 +54,11 @@ namespace XamarinCalc.Models
                 }
                 else
                 {
+                    if(indexSub == 0)
+                    {
+                        finalizadorNegativo = true;
+                        return;
+                    }
                     BuscaPm_Sm_(indexSub);
                 }
             }
