@@ -18,6 +18,7 @@ namespace XamarinCalc.Models
 
         public string ComecaAlgoritimo(string recebido)
         {
+            finalizadorNegativo = false;
             digitado = recebido;
             do
             {
@@ -47,22 +48,20 @@ namespace XamarinCalc.Models
             }
             else if (digitado.Contains(especiais[2]) || digitado.Contains(especiais[3]))
             {
-                int indexSoma = digitado.IndexOf(especiais[2]), indexSub = digitado.IndexOf(especiais[3]);
+                int indexSoma = digitado.LastIndexOf(especiais[2]), indexSub = digitado.LastIndexOf(especiais[3]);
 
-                if (indexSoma < indexSub && indexSoma > -1 || indexSub < 0)
+                if (indexSoma > indexSub && indexSoma > -1 || indexSub < 0)
                 {
                     BuscaPm_Sm_(indexSoma);
                 }
                 else
                 {
-                    if(indexSub == 0)
+                    if (indexSub ==0)
                     {
-                        /*finalizadorNegativo = true;*/
-                        usouNegativo = false;
-                        NegativoNoInicio(digitado.Substring(1));
+                        finalizadorNegativo = true;
                         return;
                     }
-                    BuscaPm_Sm_(indexSub);
+                    BuscaPm_Sm_Sub(indexSub);
                 }
             }
         }
@@ -136,13 +135,29 @@ namespace XamarinCalc.Models
         }
 
         public void BuscaPm_Sm_(int indexSimbolo)
-        {
+         {
+            bool foiApagado = false;
             double pm = RetornaNumero(indexSimbolo, true);
+            if (firstIndex >0 && digitado[firstIndex-1] == '-')
+            {
+                digitado = digitado.Remove(firstIndex-1, 1);
+                pm = pm * (-1);
+                firstIndex -= 1;
+                lastIndex -= 1;
+                indexSimbolo -= 1;
+                foiApagado = true;
+            }
             double sm = RetornaNumero(indexSimbolo, false);
             double resultado = FazConta(pm, digitado[indexSimbolo], sm);
             //string troca = ($"{pm.ToString() + digitado[indexSimbolo] + sm.ToString()}");
-            string troca = digitado.Substring(firstIndex, lastIndex - firstIndex +1);
-            digitado = digitado.Replace(troca, $"{resultado.ToString()}");
+            //string troca = digitado.Substring(firstIndex, lastIndex - firstIndex + 1);
+
+            digitado = digitado.Remove(firstIndex, lastIndex - firstIndex + 1);
+            digitado = digitado.Insert(firstIndex, $"{resultado.ToString()}");
+
+            if (resultado >= 0 && foiApagado == true && firstIndex>0)
+                digitado = digitado.Insert(firstIndex, "+");
+            //digitado = digitado.Replace(troca, $"{resultado.ToString()}");
         }
 
 
@@ -155,11 +170,11 @@ namespace XamarinCalc.Models
 
                 if (indexSoma > indexSub && indexSoma > -1 || indexSub < 0)
                 {
-                    BuscaPm_Sm_Neg(indexSoma);
+                    BuscaPm_Sm_Sub(indexSoma);
                 }
                 else
                 {
-                    BuscaPm_Sm_Neg(indexSub);
+                    BuscaPm_Sm_Sub(indexSub);
                 }
 
                 if (usouNegativo == true)
@@ -171,18 +186,49 @@ namespace XamarinCalc.Models
 
         }
 
-        void BuscaPm_Sm_Neg(int indexSimbolo)
+        void BuscaPm_Sm_Sub(int indexSimbolo)
         {
+            bool foiApagado = false;
+            string troca;
             double pm = RetornaNumero(indexSimbolo, true);
-                if (firstIndex == 0 && usouNegativo == false) { 
-                    pm = pm * (-1);
-                usouNegativo = true;
-                }
+            if(firstIndex>0 && digitado[firstIndex-1] == '-')
+            {
+                pm = pm * -1;
+                digitado = digitado.Remove(firstIndex-1,1);
+
+                firstIndex -= 1;
+                lastIndex -= 1;
+                indexSimbolo -= 1;
+                foiApagado = true;
+            }
             double sm = RetornaNumero(indexSimbolo, false);
             double resultado = FazConta(pm, digitado[indexSimbolo], sm);
-            //string troca = ($"{pm.ToString() + digitado[indexSimbolo] + sm.ToString()}");
-            string troca = digitado.Substring(firstIndex, lastIndex - firstIndex + 1);
-            digitado = digitado.Replace(troca, $"{resultado.ToString()}");
+
+            if (firstIndex <2)
+            {
+                digitado = digitado.Remove(firstIndex, lastIndex - firstIndex + 1);
+                digitado = digitado.Insert(firstIndex, $"{resultado.ToString()}");
+                //troca = digitado.Substring(firstIndex, lastIndex - firstIndex + 1);
+                //digitado = digitado.Replace(troca, $"{resultado.ToString()}");
+                return;
+            }
+            if (resultado >= 0)
+            {
+                digitado = digitado.Remove(firstIndex, lastIndex - firstIndex + 1);
+                digitado = digitado.Insert(firstIndex, $"{resultado.ToString()}");
+
+                //troca = digitado.Substring(firstIndex, lastIndex - firstIndex + 1);
+                if (foiApagado == true)
+                    digitado = digitado.Insert(firstIndex, "+");
+                //digitado = digitado.Replace(troca, $"{resultado.ToString()}");
+                return;
+            }
+            digitado = digitado.Remove(firstIndex, lastIndex - firstIndex + 1);
+            digitado = digitado.Insert(firstIndex, $"{resultado.ToString()}");
+
+            //troca = digitado.Substring(firstIndex, lastIndex - firstIndex + 1);
+            //digitado = digitado.Replace(troca, $"{resultado.ToString()}");
+
         }
     }
 }
