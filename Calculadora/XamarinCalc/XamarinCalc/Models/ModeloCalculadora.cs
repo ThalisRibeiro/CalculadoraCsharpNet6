@@ -12,6 +12,7 @@ namespace XamarinCalc.Models
         public string pontuacao = ",";
         public int contador = 0;
         bool finalizadorNegativo = false;
+        bool usouNegativo;
         int lastIndex, firstIndex;
 
 
@@ -56,7 +57,9 @@ namespace XamarinCalc.Models
                 {
                     if(indexSub == 0)
                     {
-                        finalizadorNegativo = true;
+                        /*finalizadorNegativo = true;*/
+                        usouNegativo = false;
+                        NegativoNoInicio(digitado.Substring(1));
                         return;
                     }
                     BuscaPm_Sm_(indexSub);
@@ -139,6 +142,46 @@ namespace XamarinCalc.Models
             double resultado = FazConta(pm, digitado[indexSimbolo], sm);
             //string troca = ($"{pm.ToString() + digitado[indexSimbolo] + sm.ToString()}");
             string troca = digitado.Substring(firstIndex, lastIndex - firstIndex +1);
+            digitado = digitado.Replace(troca, $"{resultado.ToString()}");
+        }
+
+
+        void NegativoNoInicio(string substrg)
+        {
+            digitado = substrg;
+            while (digitado.Contains(especiais[2]) || digitado.Contains(especiais[3]))
+            {
+                int indexSoma = digitado.LastIndexOf(especiais[2]), indexSub = digitado.LastIndexOf(especiais[3]);
+
+                if (indexSoma > indexSub && indexSoma > -1 || indexSub < 0)
+                {
+                    BuscaPm_Sm_Neg(indexSoma);
+                }
+                else
+                {
+                    BuscaPm_Sm_Neg(indexSub);
+                }
+
+                if (usouNegativo == true)
+                    break;
+            }
+            if (usouNegativo == false)
+                digitado.Insert(0, "-");
+            finalizadorNegativo = true;
+
+        }
+
+        void BuscaPm_Sm_Neg(int indexSimbolo)
+        {
+            double pm = RetornaNumero(indexSimbolo, true);
+                if (firstIndex == 0 && usouNegativo == false) { 
+                    pm = pm * (-1);
+                usouNegativo = true;
+                }
+            double sm = RetornaNumero(indexSimbolo, false);
+            double resultado = FazConta(pm, digitado[indexSimbolo], sm);
+            //string troca = ($"{pm.ToString() + digitado[indexSimbolo] + sm.ToString()}");
+            string troca = digitado.Substring(firstIndex, lastIndex - firstIndex + 1);
             digitado = digitado.Replace(troca, $"{resultado.ToString()}");
         }
     }
