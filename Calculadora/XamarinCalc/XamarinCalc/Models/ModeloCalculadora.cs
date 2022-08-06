@@ -204,31 +204,13 @@ namespace XamarinCalc.Models
             double sm = RetornaNumero(indexSimbolo, false);
             double resultado = FazConta(pm, digitado[indexSimbolo], sm);
 
-            if (firstIndex <2)
-            {
-                digitado = digitado.Remove(firstIndex, lastIndex - firstIndex + 1);
-                digitado = digitado.Insert(firstIndex, $"{resultado.ToString()}");
-                //troca = digitado.Substring(firstIndex, lastIndex - firstIndex + 1);
-                //digitado = digitado.Replace(troca, $"{resultado.ToString()}");
-                return;
-            }
-            if (resultado >= 0)
-            {
-                digitado = digitado.Remove(firstIndex, lastIndex - firstIndex + 1);
-                digitado = digitado.Insert(firstIndex, $"{resultado.ToString()}");
-
-                //troca = digitado.Substring(firstIndex, lastIndex - firstIndex + 1);
-                if (foiApagado == true)
-                    digitado = digitado.Insert(firstIndex, "+");
-                //digitado = digitado.Replace(troca, $"{resultado.ToString()}");
-                return;
-            }
             digitado = digitado.Remove(firstIndex, lastIndex - firstIndex + 1);
             digitado = digitado.Insert(firstIndex, $"{resultado.ToString()}");
 
-            //troca = digitado.Substring(firstIndex, lastIndex - firstIndex + 1);
-            //digitado = digitado.Replace(troca, $"{resultado.ToString()}");
-
+            if (resultado >= 0 && foiApagado == true)
+            {                
+                    digitado = digitado.Insert(firstIndex, "+");
+            }
         }
     }
 }
