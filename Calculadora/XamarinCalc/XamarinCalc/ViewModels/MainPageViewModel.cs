@@ -42,11 +42,10 @@ namespace XamarinCalc.ViewModels
             if (CanUseVirgula() == false)
                 return;
             string lastIndex = entrada[ReturnLastIndex()].ToString();
-
-            if (lastIndex.Contains(calculadora.especiais[0]) || lastIndex.Contains(calculadora.especiais[1])
-                || lastIndex.Contains(calculadora.especiais[2]) || lastIndex.Contains(calculadora.especiais[3]) || lastIndex.Contains(calculadora.pontuacao))
-                return;
+            if (VerificaEspeciais(lastIndex))
+            return;
             Entrada += botao;
+
         }
         void AdicionaBotao(string botao)
         {
@@ -54,11 +53,20 @@ namespace XamarinCalc.ViewModels
                 return;
             string lastIndex = entrada[ReturnLastIndex()].ToString();
 
-            if (lastIndex.Contains(calculadora.especiais[0])|| lastIndex.Contains(calculadora.especiais[1])
-                || lastIndex.Contains(calculadora.especiais[2])|| lastIndex.Contains(calculadora.especiais[3]) || lastIndex.Contains(calculadora.pontuacao))            
+            if (VerificaEspeciais(lastIndex))
                 entrada = entrada.Remove(ReturnLastIndex());
             Entrada += botao;
         }
+
+
+        bool VerificaEspeciais(string lastIndex)
+        {
+            if (lastIndex.Contains(calculadora.especiais[0]) || lastIndex.Contains(calculadora.especiais[1])|| lastIndex.Contains(calculadora.especiais[2]) || 
+                lastIndex.Contains(calculadora.especiais[3]) || lastIndex.Contains(calculadora.pontuacao) || lastIndex.Contains("%"))
+                return true;
+            return false;
+        }
+
         void AdicionaNumero(string botao)
         {
             canUseSpecialButtons = true;
@@ -82,8 +90,7 @@ namespace XamarinCalc.ViewModels
                 return;
 
             string lastIndex = entrada[ReturnLastIndex()].ToString();
-            if (lastIndex.Contains(calculadora.especiais[0]) || lastIndex.Contains(calculadora.especiais[1])
-                || lastIndex.Contains(calculadora.especiais[2]) || lastIndex.Contains(calculadora.especiais[3]) || lastIndex.Contains(calculadora.pontuacao))
+            if (VerificaEspeciais(lastIndex))
                 return;
                 Entrada = calculadora.ComecaAlgoritimo(Entrada);
         }
