@@ -20,6 +20,7 @@ namespace XamarinCalc.Models
         {
             finalizadorNegativo = false;
             digitado = recebido;
+            TrocaPorcem();
             do
             {
                 BuscaMultiDiv();
@@ -29,6 +30,11 @@ namespace XamarinCalc.Models
             return digitado;
         }
 
+        private void TrocaPorcem()
+        {
+            if (digitado.Contains("%"))
+                digitado = digitado.Replace("%", "/100");
+        }
         private void BuscaMultiDiv()
         {
             if (digitado.Contains(especiais[0]) || digitado.Contains(especiais[1]))
