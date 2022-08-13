@@ -62,7 +62,7 @@ namespace XamarinCalc.ViewModels
         bool VerificaEspeciais(string lastIndex)
         {
             if (lastIndex.Contains(calculadora.especiais[0]) || lastIndex.Contains(calculadora.especiais[1])|| lastIndex.Contains(calculadora.especiais[2]) || 
-                lastIndex.Contains(calculadora.especiais[3]) || lastIndex.Contains(calculadora.pontuacao) || lastIndex.Contains("%"))
+                lastIndex.Contains(calculadora.especiais[3]) || lastIndex.Contains(calculadora.pontuacao))
                 return true;
             return false;
         }
