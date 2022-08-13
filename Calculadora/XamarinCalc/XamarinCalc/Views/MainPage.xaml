@@ -130,6 +130,13 @@
             CommandParameter="/"
             Text="/" />
         <Button
+            x:Name="Button_Porcem"
+            Grid.Row="5"
+            Grid.Column="0"
+            Command="{Binding AdicionaBotaoComando}"
+            CommandParameter="{Binding Source={Reference Button_Porcem}, Path=Text}"
+            Text="%" />
+        <Button
             Grid.Row="5"
             Grid.Column="2"
             Command="{Binding AdicionaVirgulaComando}"
