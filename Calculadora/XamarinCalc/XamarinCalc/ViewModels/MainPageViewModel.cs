@@ -18,6 +18,7 @@ namespace XamarinCalc.ViewModels
         string entrada;
         ModeloCalculadora calculadora;
         bool canUseSpecialButtons;
+        readonly Services.IMessage _message;
         public MainPageViewModel()
         {
             AdicionaNumeroComando = new Command<string>(AdicionaNumero);
@@ -28,6 +29,7 @@ namespace XamarinCalc.ViewModels
             ComecaCalcularComando = new Command(ComecaCalcular);
             canUseSpecialButtons = false;
             calculadora = new ModeloCalculadora();
+            _message = DependencyService.Get<Services.IMessage>();
         }
         int ReturnLastIndex()
         {
@@ -93,6 +95,9 @@ namespace XamarinCalc.ViewModels
             if (VerificaEspeciais(lastIndex))
                 return;
                 Entrada = calculadora.ComecaAlgoritimo(Entrada);
+
+            //teste para saber se a dependency deu certo
+            _message.MostraMensagemErro("TESTE");
         }
         bool CanUseVirgula()
         {

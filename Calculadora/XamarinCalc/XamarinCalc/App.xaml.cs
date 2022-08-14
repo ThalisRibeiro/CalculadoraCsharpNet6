@@ -8,6 +8,7 @@ namespace XamarinCalc
     {
         public App()
         {
+            DependencyService.Register<ViewModels.Services.IMessage, Views.Services.Message>();
             InitializeComponent();
 
             MainPage = new AppShell();
